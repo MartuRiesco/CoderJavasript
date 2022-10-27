@@ -1,0 +1,35 @@
+/* estructura condicional if 
+if(condicion ){
+    condicion a ejecutar si es verdadera
+
+}
+*/
+/*= asigna valor
+== compara valores
+=== compara valor y tipo de datos
+*/
+estructura del bucle for
+for(desde; hasta; actualizacion){
+    codigo a repetir
+}
+
+BREAK
+for(let i=1; i<=10; i++){
+   if(i=== 5){
+    console.log("entramos al break")
+     break;
+     }
+     console.log ("hola todos", i)
+}
+console.log ("proceso finalizado")
+
+estructura de una funcion
+function nombreFuncion(){
+    codigo de la funcion
+}
+estructura de una funcion con parametros
+function nombreFuncion (param1, param2, ..., ){
+    codigo de la funcion
+}
+estructura de un objeto
+{clave1: valor1, clave2: valor2, ...}
