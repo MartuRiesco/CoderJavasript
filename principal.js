@@ -29,4 +29,6 @@ while(talle!="esc"){
        default:
            alert("Opcion invalida")
            break;
-   }}
+   }
+   talle = prompt("ingrese el talle deseado a. 85/90 b.90/95 c.95/100 d.100/105 e.Otro")
+}
