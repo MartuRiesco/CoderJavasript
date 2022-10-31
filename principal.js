@@ -39,10 +39,13 @@ let malla = prompt("seleccione el tipo de malla que desea comprar: 1. Bikini 2. 
 /* seleccion de tipo de malla */
 if (malla == 1) {
     alert("selecciono Bikini");
+    document.write("Bikini")
 } else if (malla == 2) {
     alert("selecciono Enteriza");
+    document.write("Enteriza")
 } else {
     alert("Opcion no valida")
+    /* return malla */
 }
 /* seleccion de talle de malla */
 let talle = prompt("Seleccione el talle: a. 85/90 b.90/95 c.95/100 d.100/105 e.Otro");
@@ -53,22 +56,27 @@ while (flag) {
     switch (talle) {
         case "a":
             alert("contamos con 5 modelos de este talle");
+            document.write(" talle 85/90")
             flag = false;
             break;
         case "b":
             alert("contamos con 2 modelos de este talle");
+            document.write(" talle 90/95")
             flag = false;
             break;
         case "c":
             alert("contamos con 4 modelos de este talle");
+            document.write(" talle 95/100")
             flag = false;
             break;
         case "d":
             alert("contamos con 3 modelos de este talle");
+            document.write(" talle 100/105")
             flag = false;
             break;
         case "e":
             alert("contamos con 2 modelos de este talle");
+            document.write(" talle 105/+")
             flag = false;
             break;
         default:
@@ -79,6 +87,7 @@ while (flag) {
     if (desea == "si") {
         flag = true
         malla = prompt("seleccione el tipo de malla que desea comprar: 1. Bikini 2. Enteriza")
+        
         talle = prompt("Seleccione el talle: a. 85/90 b.90/95 c.95/100 d.100/105 e.Otro");
     } else {
         flag = false;
