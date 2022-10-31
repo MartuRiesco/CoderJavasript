@@ -1,4 +1,4 @@
-let presentacion = alert("Bienvenidos a Wachas en Bombachas!")
+/* let presentacion = alert("Bienvenidos a Wachas en Bombachas!")
 let malla = prompt ("seleccione el tipo de malla que desea comprar: 1. Bikini 2. Enteriza")
 if (malla==1){
     alert("selecciono Bikini");
@@ -31,4 +31,57 @@ while(talle!="esc"){
            break;
    }
    talle = prompt("ingrese el talle deseado a. 85/90 b.90/95 c.95/100 d.100/105 e.Otro")
+}
+ */
+let presentacion = alert("Bienvenidos a Wachas en Bombachas!")
+let malla = prompt("seleccione el tipo de malla que desea comprar: 1. Bikini 2. Enteriza")
+
+/* seleccion de tipo de malla */
+if (malla == 1) {
+    alert("selecciono Bikini");
+} else if (malla == 2) {
+    alert("selecciono Enteriza");
+} else {
+    alert("Opcion no valida")
+}
+/* seleccion de talle de malla */
+let talle = prompt("Seleccione el talle: a. 85/90 b.90/95 c.95/100 d.100/105 e.Otro");
+
+let flag = true;
+/* aviso de stock */
+while (flag) {
+    switch (talle) {
+        case "a":
+            alert("contamos con 5 modelos de este talle");
+            flag = false;
+            break;
+        case "b":
+            alert("contamos con 2 modelos de este talle");
+            flag = false;
+            break;
+        case "c":
+            alert("contamos con 4 modelos de este talle");
+            flag = false;
+            break;
+        case "d":
+            alert("contamos con 3 modelos de este talle");
+            flag = false;
+            break;
+        case "e":
+            alert("contamos con 2 modelos de este talle");
+            flag = false;
+            break;
+        default:
+            alert("Opcion invalida")
+            break;
+    }
+    let desea = prompt("Desea seguir comprando?")
+    if (desea == "si") {
+        flag = true
+        malla = prompt("seleccione el tipo de malla que desea comprar: 1. Bikini 2. Enteriza")
+        talle = prompt("Seleccione el talle: a. 85/90 b.90/95 c.95/100 d.100/105 e.Otro");
+    } else {
+        flag = false;
+        alert("gracias por su compra!")
+    }
 }
