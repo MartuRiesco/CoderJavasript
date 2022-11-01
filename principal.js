@@ -33,20 +33,26 @@ while(talle!="esc"){
    talle = prompt("ingrese el talle deseado a. 85/90 b.90/95 c.95/100 d.100/105 e.Otro")
 }
  */
-let presentacion = alert("Bienvenidos a Wachas en Bombachas!")
-let malla = prompt("seleccione el tipo de malla que desea comprar: 1. Bikini 2. Enteriza")
 
+let presentacion = alert("Bienvenidos a Wachas en Bombachas!")
 /* seleccion de tipo de malla */
-if (malla == 1) {
-    alert("selecciono Bikini");
-    document.write("Bikini")
-} else if (malla == 2) {
-    alert("selecciono Enteriza");
-    document.write("Enteriza")
-} else {
-    alert("Opcion no valida")
-    /* return malla */
-}
+let malla = prompt("seleccione el tipo de malla que desea comprar: 1. Bikini 2. Enteriza")
+let dis = true
+do{
+    if (malla == 1) {
+        alert("selecciono Bikini");
+        document.write("Bikini")
+        dis = false;
+    } else if (malla == 2) {
+        alert("selecciono Enteriza");
+        document.write("Enteriza")
+        dis = false;
+    }else{
+        malla = prompt("Opcion invalida. Seleccione el tipo de malla que desea comprar: 1. Bikini 2. Enteriza")     
+    }
+}while (dis)
+
+
 /* seleccion de talle de malla */
 let talle = prompt("Seleccione el talle: a. 85/90 b.90/95 c.95/100 d.100/105 e.Otro");
 
