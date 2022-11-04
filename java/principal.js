@@ -13,7 +13,8 @@ const productos = [
     { id: 4, nombre: "clytia", precio: 1750 },
     {id: 5, nombre: "laminaria", precio: 2000},
   ];
-
+let carrito =[]
+ const total = carrito.reduce ((acum, item) => acum + item, 0); 
 mallas();
 encontrar();
 modelos();
@@ -26,7 +27,7 @@ modelos();
         modelos();
     } else {
         das= false;
-        alert("gracias por su compra!");
+        alert("gracias por su compra! el total a abonar es: "+ total );
     }} while(das)
 
 function mallas(){
@@ -57,6 +58,7 @@ if (malla == 1) {
     for(const producto of productos){
       if(producto.nombre === mod){
         alert('selecciono '+ mod)
+        carrito.push(producto.precio)
         document.write(mod)
         encontrado = true;
       }
@@ -108,7 +110,4 @@ function modelos(){
                 break;
         }
     }
-}
-function suma (){
-    let index = productos.indexOf(precio)
 }

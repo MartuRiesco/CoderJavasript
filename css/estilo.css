@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; }
+    @font-face {
+        font-family: "oufit";
+        src: url(../fonts/Outfit-VariableFont_wght.ttf); }
+        .grilla {
+            display: grid;
+            grid-template-areas: "header header header" "fotos fotos fotos" "footer footer footer";}
+
+    h1{
+        font-family: "oufit";
+    }
+    header {
+        grid-area: header;
+    background-color: #00E6FF; }
+    .logo{
+        width: 100px;
+        height: 100px;
+margin-top: 0;
+margin-left: 0;
+display: flex;
+    }
