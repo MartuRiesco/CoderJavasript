@@ -11,6 +11,9 @@
 
     h1{
         font-family: "oufit";
+        color: white;
+        display: inline;
+        font-weight: bolder;
     }
     header {
         grid-area: header;
@@ -20,5 +23,24 @@
         height: 100px;
 margin-top: 0;
 margin-left: 0;
-display: flex;
+display: inline;
     }
+    .navbar {
+        font-family: "oufit";
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: large; }
+       main{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-top: 10;
+        background-color: #00E6FF;
+       }
+       footer{
+        background-color: #00E6FF;
+       }
+       .btn{
+         background-color: #FF337E;
+       }

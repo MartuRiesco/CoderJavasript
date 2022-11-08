@@ -13,41 +13,43 @@ const productos = [
     { id: 4, nombre: "clytia", precio: 1750 },
     {id: 5, nombre: "laminaria", precio: 2000},
   ];
+  let das= true;
 let carrito =[]
- const total = carrito.reduce ((acum, item) => acum + item, 0); 
 mallas();
 encontrar();
 modelos();
- let das= true;
-    do
-    {let desea = prompt("Desea seguir comprando?");
-    if (desea == "si") {
-        mallas();
-        encontrar();
-        modelos();
-    } else {
-        das= false;
-        alert("gracias por su compra! el total a abonar es: "+ total );
-    }} while(das)
+
+do
+{let desea = prompt("Desea seguir comprando?");
+if (desea == "si") {
+    mallas();
+    encontrar();
+    modelos();
+    
+} else {
+    das= false;
+    alert ( "gracias por su compra! el total a abonar es: "+ calcularTotalCompra()) ;
+}} while(das)
+
 
 function mallas(){
- malla = prompt ("seleccione el tipo de malla que desea comprar: 1. Bikini 2. Enteriza")
-
-while( (malla!="1" && malla!="2" )){
-
-     malla = prompt("Opcion invalida. Seleccione el tipo de malla que desea comprar: 1. Bikini 2. Enteriza")     
+    malla = prompt ("seleccione el tipo de malla que desea comprar: 1. Bikini 2. Enteriza")
+    
+    while( (malla!="1" && malla!="2" )){
+        
+        malla = prompt("Opcion invalida. Seleccione el tipo de malla que desea comprar: 1. Bikini 2. Enteriza")     
+    }
+    
+    if (malla == 1) {
+        alert("selecciono Bikini");
+        document.write(" Bikini ")
+    } else if (malla == 2) {
+        alert("selecciono Enteriza");
+        document.write(" Enteriza ")
+    }
 }
-
-if (malla == 1) {
-    alert("selecciono Bikini");
-    document.write(" Bikini ")
-} else if (malla == 2) {
-    alert("selecciono Enteriza");
-    document.write(" Enteriza ")
-}
-}
-  /* seleccion de modelos */
- function encontrar () {
+/* seleccion de modelos */
+function encontrar () {
     alert("los modelos disponibles son: Janina, Corallina, Volvox, Clytia y Laminaria")
       mod = prompt("Ingrese el nombre del producto que desea").toLowerCase();
     encontrado = false;
@@ -111,3 +113,11 @@ function modelos(){
         }
     }
 }
+const calcularTotalCompra = () => {
+    let total = 0;
+    carrito.forEach((producto) => {
+      total += producto.precio * producto.cantidad;
+    });
+    totalCompra.innerHTML = total;
+  };
+  
