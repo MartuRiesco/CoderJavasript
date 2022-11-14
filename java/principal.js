@@ -28,7 +28,8 @@ if (desea == "si") {
     
 } else {
     das= false;
-    alert ( "gracias por su compra! el total a abonar es: "+ calcularTotalCompra()) ;
+    let total = carrito.reduce((acum, item)=>acum + item.precio, 0)
+    alert ( "gracias por su compra! el total a abonar es: "+ total) ;
 }} while(das)
 
 
@@ -60,7 +61,7 @@ function encontrar () {
     for(const producto of productos){
       if(producto.nombre === mod){
         alert('selecciono '+ mod)
-        carrito.push(producto.precio)
+        carrito.push(producto)
         document.write(mod)
         encontrado = true;
       }
@@ -113,11 +114,3 @@ function modelos(){
         }
     }
 }
-const calcularTotalCompra = () => {
-    let total = 0;
-    carrito.forEach((producto) => {
-      total += producto.precio * producto.cantidad;
-    });
-    totalCompra.innerHTML = total;
-  };
-  
