@@ -31,13 +31,14 @@ display: inline;
         top: 0;
         right: 0;
         font-size: large; }
-       main{
-        display: flex;
+       main{display:flex ;
         flex-direction: row;
-        justify-content: space-evenly;
+         justify-content: space-evenly; 
         margin-top: 10;
         background-color: #00E6FF;
        }
+    
+
        footer{
         background-color: #00E6FF;
        }

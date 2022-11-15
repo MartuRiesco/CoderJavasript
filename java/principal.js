@@ -7,14 +7,14 @@ let talle;
 let mod;
 let encontrado;
 const productos = [
-    { id: 1, nombre: "janina", precio: 1000 },
-    { id: 2, nombre: "corallina", precio: 700 },
-    { id: 3, nombre: "volvox", precio: 800 },
-    { id: 4, nombre: "clytia", precio: 1750 },
-    {id: 5, nombre: "laminaria", precio: 2000},
+    { id: 1, nombre: "janina", precio: 1000, img:"./img/Janina.jpg" },
+    { id: 2, nombre: "corallina", precio: 700, img: "./img/Corallina.jpg" },
+    { id: 3, nombre: "volvox", precio: 800, img:"./img/Volvox.jpg" },
+    { id: 4, nombre: "clytia", precio: 1750, img:"./img/Clytia.jpg" },
   ];
   let das= true;
 let carrito =[]
+let carro = []
 mallas();
 encontrar();
 modelos();
@@ -113,4 +113,23 @@ function modelos(){
                 break;
         }
     }
+}
+
+let card = document.getElementById("contenedor");
+productos.forEach((x)=>{
+    const{id, nombre, precio, img}=x
+    card.innerHTML += ` <div class="card" style="width: 18rem;" id="cards">
+    <img src="${img}" class="card-img-top" alt="${nombre}">
+    <div class="card-body">
+        <h5 class="card-title">${nombre} </h5>
+        <p class="card-text">Bikini ${nombre} </p>
+        <p class="card-text">Precio: $${precio} </p>
+        <button onclick="agregarProducto(${id}) class="btn btn-primary"> Agregar al carrito </button>
+    </div>
+    </div>`;
+})
+function agregarProducto(id){
+   const itm= productos.find((x)=>x.id ===id)
+   carro.push(itm)
+   console.log(carro);
 }
