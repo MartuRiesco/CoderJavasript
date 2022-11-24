@@ -42,6 +42,16 @@ display: inline;
        footer{
         background-color: #00E6FF;
        }
-       .btn{
-         background-color: #FF337E;
+       button{
+         background-color: #3347ff;
+        
        }
+    .modal-contenedor{
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+    .img-carrito{
+        width: 200px;
+        padding: 20px;
+    }

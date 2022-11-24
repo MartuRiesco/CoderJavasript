@@ -7,15 +7,15 @@ let talle;
 let mod;
 let encontrado;
 const productos = [
-    { id: 1, nombre: "janina", precio: 1000, img:"./img/Janina.jpg" },
-    { id: 2, nombre: "corallina", precio: 700, img: "./img/Corallina.jpg" },
-    { id: 3, nombre: "volvox", precio: 800, img:"./img/Volvox.jpg" },
-    { id: 4, nombre: "clytia", precio: 1750, img:"./img/Clytia.jpg" },
+    { id: 1, nombre: "janina", precio: 1000, img:"./img/Janina.jpg", cantidad: 1},
+    { id: 2, nombre: "corallina", precio: 700, img: "./img/Corallina.jpg", cantidad: 1 },
+    { id: 3, nombre: "volvox", precio: 800, img:"./img/Volvox.jpg", cantidad: 1},
+    { id: 4, nombre: "clytia", precio: 1750, img:"./img/Clytia.jpg", cantidad: 1 },
   ];
   let das= true;
-let carrito =[]
+/* let carrito =[] */
 let carro = []
-mallas();
+/* mallas();
 encontrar();
 modelos();
 
@@ -48,9 +48,9 @@ function mallas(){
         alert("selecciono Enteriza");
         document.write(" Enteriza ")
     }
-}
+} */
 /* seleccion de modelos */
-function encontrar () {
+/* function encontrar () {
     alert("los modelos disponibles son: Janina, Corallina, Volvox, Clytia y Laminaria")
       mod = prompt("Ingrese el nombre del producto que desea").toLowerCase();
     encontrado = false;
@@ -73,12 +73,12 @@ function encontrar () {
     }
 }
 
-  
+   */
 /* seleccion de talle de malla */
  
 /* aviso de stock */
 
-function modelos(){
+/* function modelos(){
     flag = true;
     while (flag) {
         talle = prompt("Seleccione el talle: a. 85/90 b.90/95 c.95/100 d.100/105 e.Otro");
@@ -113,23 +113,64 @@ function modelos(){
                 break;
         }
     }
-}
+} */
+const carritoContenedor = document.querySelector('#carritoContenedor')
+const vaciarCarrito = document.querySelector('#vaciarCarrito')
+document.addEventListener('DOMContentLoaded', ()=> {
+    carro= JSON.parse(localStorage.getItem("carro")) || []
+    mostrarCarrito()
+})
 
 let card = document.getElementById("contenedor");
 productos.forEach((x)=>{
-    const{id, nombre, precio, img}=x
+    const{id, nombre, precio, img, cantidad}=x
     card.innerHTML += ` <div class="card" style="width: 18rem;" id="cards">
     <img src="${img}" class="card-img-top" alt="${nombre}">
     <div class="card-body">
         <h5 class="card-title">${nombre} </h5>
         <p class="card-text">Bikini ${nombre} </p>
         <p class="card-text">Precio: $${precio} </p>
-        <button onclick="agregarProducto(${id}) class="btn btn-primary"> Agregar al carrito </button>
-    </div>
-    </div>`;
-})
+        <p class="card-text">Cantidad: ${cantidad} </p>
+        <button onclick="agregarProducto(${id})" class="btn btn-primary"> Agregar al carrito </button>
+        </div>
+        </div>`;
+    })
+
+vaciarCarrito.addEventListener('click', () => {
+        carro=[]
+        mostrarCarrito()
+    })
 function agregarProducto(id){
    const itm= productos.find((x)=>x.id ===id)
    carro.push(itm)
-   console.log(carro);
+   mostrarCarrito ()
+}
+const mostrarCarrito = () => {
+    const modalBody = document.querySelector('.modal .modal-body')
+    modalBody.innerHTML=''
+   carro.forEach((x)=>{
+    const{id, nombre, precio, img, cantidad}=x
+    modalBody.innerHTML += ` 
+    <div class= "modal-contenedor"> 
+    <div>
+    <img class="img-fluid img-carrito" src="${img}"/></div>
+    <div>
+    <p>Producto: ${nombre}</p>
+    <p>Precio: $${precio}</p>
+    <p>Cantidad: ${cantidad}</p>
+    <button onclick="eliminarProducto(${id})" class = "btn btn-danger">Eliminar producto</button>
+    </div>
+    </div>
+    `
+   })
+   carritoContenedor.textContent= carro.length
+   guardarStorage()
+}    
+function eliminarProducto(id){
+   const juegoId= id
+  carro= carro.filter((juego)=> juego.id !== juegoId)
+mostrarCarrito()}
+
+function guardarStorage(){
+    localStorage.setItem("carro", JSON.stringify(carro))
 }
