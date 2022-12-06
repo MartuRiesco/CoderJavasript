@@ -1,6 +1,3 @@
-
-let presentacion = alert("Bienvenidos a Wachas en Bombachas!")
-/* seleccion de tipo de malla */
 let malla;
 let flag;
 let talle;
@@ -16,7 +13,7 @@ const productos = [
 /* let carrito =[] */
 let carro = []
 const carritoContenedor = document.querySelector('#carritoContenedor')
-
+const las = Swal.fire('Any fool can use a computer')
 document.addEventListener('DOMContentLoaded', ()=> {
     carro= JSON.parse(localStorage.getItem("carro")) || []
     mostrarCarrito()
@@ -32,20 +29,28 @@ productos.forEach((x)=>{
         <p class="card-text">Bikini ${nombre} </p>
         <p class="card-text">Precio: $${precio} </p>
         <p class="card-text">Cantidad: ${cantidad} </p>
-        <button onclick="agregarProducto(${id})" class="btn btn-primary"> Agregar al carrito </button>
+        <button onclick="agregarProducto(${id})" id="boton" class="btn btn-primary"> Agregar al carrito </button>
         </div>
         </div>
         
         `;
     })
+   
 
-    
 function agregarProducto(id){
     const existe = carro.some(prod=> prod.id===id)
   if(existe){
     const prod= carro.map(prod=>{
         prod.id===id && prod.cantidad++
     })
+    let kal = document.querySelector('#boton')
+    kal.addEventListener("click", ()=>{
+    Swal.fire({
+        title:"Agregado al carrito",
+        icon: "success",
+        confirmButtonText: "Cool",
+      });
+})
   }else{
     const itm= productos.find((x)=>x.id ===id)
     carro.push(itm)
@@ -95,6 +100,8 @@ vaciarCarrito.addEventListener('click', () => {
     mostrarCarrito()
     })
     const precioTotal = document.querySelector('#precioTotal')
+
+
 
     /* mallas();
     encontrar();
