@@ -1,0 +1,6 @@
+[
+    { "id": 1, "nombre": "janina",   "precio": 1000, "img":"./img/Janina.jpg", "cantidad": 1},
+    { "id": 2, "nombre":"corallina", "precio":  700, "img": "./img/Corallina.jpg", "cantidad": 1 },
+    { "id": 3, "nombre": "volvox",   "precio": 800,  "img":"./img/Volvox.jpg", "cantidad": 1},
+    { "id": 4, "nombre": "clytia",   "precio": 1750, "img":"./img/Clytia.jpg", "cantidad": 1 }
+  ]

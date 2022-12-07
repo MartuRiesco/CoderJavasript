@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -88,7 +88,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger" id="vaciarCarrito" >Vaciar carrito</button>
-                  <button type="button" class="btn btn-primary"  id="procesarCompra" >Continuar compra</button>
+                  <button type="button" class="btn btn-primary"  id="procesarCompra"  data-bs-dismiss="modal" >Continuar compra</button>
                   <span>Precio total: $</span>
                 <p class="text-center " id="precioTotal"></p>
                 </div>
@@ -104,7 +104,8 @@
           <section class="princi" id="contenedor"></section>
     </main>
     <footer></footer>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.14/dist/sweetalert2.all.min.js"></script>
+
     <script src="./java/bootstrap.bundle.min.js"></script>
     <script src="./java/principal.js"></script>
 </body>

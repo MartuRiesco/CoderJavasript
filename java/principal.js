@@ -13,50 +13,46 @@ const productos = [
 /* let carrito =[] */
 let carro = []
 const carritoContenedor = document.querySelector('#carritoContenedor')
-const las = Swal.fire('Any fool can use a computer')
 document.addEventListener('DOMContentLoaded', ()=> {
     carro= JSON.parse(localStorage.getItem("carro")) || []
     mostrarCarrito()
 })
 
-let card = document.getElementById("contenedor");
-productos.forEach((x)=>{
-    const{id, nombre, precio, img, cantidad}=x
-    card.innerHTML += ` <div class="card" style="width: 18rem;" id="cards">
-    <img src="${img}" class="card-img-top" alt="${nombre}">
+fetch("./datos.json")
+.then (response => response.json())
+.then(datos =>{
+    datos.forEach(productos=>{
+        let card = document.getElementById("contenedor");
+        card.innerHTML += ` <div class="card" style="width: 18rem;" id="cards">
+    <img src="${productos.img}" class="card-img-top" alt="${productos.nombre}">
     <div class="card-body">
-        <h5 class="card-title">${nombre} </h5>
-        <p class="card-text">Bikini ${nombre} </p>
-        <p class="card-text">Precio: $${precio} </p>
-        <p class="card-text">Cantidad: ${cantidad} </p>
-        <button onclick="agregarProducto(${id})" id="boton" class="btn btn-primary"> Agregar al carrito </button>
+        <h5 class="card-title">${productos.nombre} </h5>
+        <p class="card-text">Bikini ${productos.nombre} </p>
+        <p class="card-text">Precio: $${productos.precio} </p>
+        <p class="card-text">Cantidad: ${productos.cantidad} </p>
+        <button onclick="agregarProducto(${productos.id})" id="boton" class="btn btn-primary"> Agregar al carrito </button>
         </div>
         </div>
         
         `;
     })
-   
-
-function agregarProducto(id){
-    const existe = carro.some(prod=> prod.id===id)
-  if(existe){
-    const prod= carro.map(prod=>{
-        prod.id===id && prod.cantidad++
-    })
-    let kal = document.querySelector('#boton')
-    kal.addEventListener("click", ()=>{
-    Swal.fire({
-        title:"Agregado al carrito",
-        icon: "success",
-        confirmButtonText: "Cool",
-      });
 })
-  }else{
-    const itm= productos.find((x)=>x.id ===id)
-    carro.push(itm)
-  }
-   
-   mostrarCarrito ()
+function agregarProducto(id){
+    const existe = carro.some(prod => prod.id === id)
+    if (existe) {
+        const prod = carro.map(prod => {
+            prod.id === id && prod.cantidad++
+        })
+    } else {
+        const itm = productos.find((x) => x.id === id)
+        carro.push(itm)
+        Swal.fire({
+            title: "Agregado al carrito",
+            icon: "success",
+            confirmButtonText: "Genial!",
+        });
+    }
+    mostrarCarrito()
 }
 const mostrarCarrito = () => {
     const modalBody = document.querySelector('.modal .modal-body')
