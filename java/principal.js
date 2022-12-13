@@ -3,12 +3,18 @@ let flag;
 let talle;
 let mod;
 let encontrado;
-const productos = [
+/* const productos = [
     { id: 1, nombre: "janina", precio: 1000, img:"./img/Janina.jpg", cantidad: 1},
     { id: 2, nombre: "corallina", precio: 700, img: "./img/Corallina.jpg", cantidad: 1 },
     { id: 3, nombre: "volvox", precio: 800, img:"./img/Volvox.jpg", cantidad: 1},
     { id: 4, nombre: "clytia", precio: 1750, img:"./img/Clytia.jpg", cantidad: 1 },
-  ];
+  ]; */
+  fetch("./datos.json")
+  .then (response => response.json())
+  .then(datos =>{
+      productos = datos
+    })
+    let productos =[]
   let das= true;
 /* let carrito =[] */
 let carro = []
@@ -24,7 +30,7 @@ fetch("./datos.json")
     datos.forEach(productos=>{
         let card = document.getElementById("contenedor");
         card.innerHTML += ` <div class="card" style="width: 18rem;" id="cards">
-    <img src="${productos.img}" class="card-img-top" alt="${productos.nombre}">
+         <img src="${productos.img}" class="card-img-top" alt="${productos.nombre}">
     <div class="card-body">
         <h5 class="card-title">${productos.nombre} </h5>
         <p class="card-text">Bikini ${productos.nombre} </p>
@@ -37,6 +43,7 @@ fetch("./datos.json")
         `;
     })
 })
+
 function agregarProducto(id){
     const existe = carro.some(prod => prod.id === id)
     if (existe) {
